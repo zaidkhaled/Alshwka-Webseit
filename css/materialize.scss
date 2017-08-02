@@ -1,0 +1,552 @@
+@charset "UTF-8";
+
+// Mixins
+@import "components/mixins";
+@import "components/color";
+
+// Variables;
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+// components
+@import "components/global";
+@import "components/badges";
+@import "components/icons-material-design";
+@import "components/grid";
+@import "components/navbar";
+@import "components/roboto";
+@import "components/typography";
+@import "components/transitions";
+@import "components/cards";
+@import "components/toast";
+@import "components/tabs";
+@import "components/tooltip";
+@import "components/buttons";
+@import "components/dropdown";
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/chips";
+@import "components/materialbox";
+@import "components/forms/forms";
+@import "components/table_of_contents";
+@import "components/sideNav";
+@import "components/preloader";
+@import "components/slider";
+@import "components/carousel";
+@import "components/tapTarget";
+@import "components/pulse";
+@import "components/date_picker/default";
+@import "components/date_picker/default.date";
+@import "components/date_picker/default.time";
+
+
+//var and function
+
+
+
+
+
+
+
+
+
+
+$impo:!important;
+$mincol1:  #1f564e !important;
+$mincol2:  #ff6138  !important;
+$mincol3:  #FFD767  !important;
+$mincol4:  #EEFF8E  !important;
+$mincol5:  #979926  !important;
+$fontyh2:'Artifika', serif;
+
+
+
+@mixin trans($elo) {
+    
+    $tim :.5s;
+    $fun:0;
+    @if $elo > $tim{
+        
+        $fun:linear;
+        
+    }@else {
+        
+        $fun:ease-in-out ;
+        
+    }
+   
+        
+    -webkit-transition: all $elo $fun;
+    -moz-transition: all $elo $fun;
+    -o-transition: all $elo $fun;
+    transition: all $elo $fun;
+     
+}
+
+@mixin bxshadw($x, $y, $s, $m, $col, $x2, $y2, $s2, $m2, $col3){
+    
+    -webkit-box-shadow:$x $y $y $m $col, $x2 $y2 $s2 $m2 $col;
+    
+    -moz-box-shadow:$x $y $y $m $col, $x2 $y2 $s2 $m2 $col;
+    
+    -o-box-shadow:$x $y $y $m $col, $x2 $y2 $s2 $m2 $col;
+    
+    box-shadow:$x $y $y $m $col, $x2 $y2 $s2 $m2 $col;
+        
+            
+}
+
+
+
+
+//global
+
+.overlay{
+    background-color: rgba(86, 38, 28, 0.65);;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+body{
+    
+
+     display: flex;
+    flex-direction: column;
+    font-family:'Alice', serif;;
+}
+ main {
+    flex: 1 0 auto;
+  }
+
+
+.title{
+     color:$mincol2;
+    margin-bottom: 50px;
+}
+
+.p1{
+      margin-bottom: 50px !important; 
+    font-weight: bold;
+    font-size: 20px
+
+}
+
+
+.upper{
+  text-transform:capitalize;
+}
+
+.rel{
+    position: relative;
+}
+
+.absulute{
+    position: absolute;
+}
+
+.myIcons{
+    
+ border: 2px solid #ea3556;
+    border-radius: 50%;
+    height: 58px;
+    width: 58px !important;
+    line-height: 50px;
+}
+//end global
+
+
+//start Navbar
+
+.navbar-fixed {
+    z-index: 998;
+}
+
+.navbig{
+    position: fixed;
+    top: 140px;
+    left: 30px;
+}
+.nav1{
+       width: 110px;
+       height: 330px;
+        border-radius: 10px;
+}
+
+.columnfix{
+   width: 100%;
+}
+
+
+nav{
+    background-color: $mincol3;
+}
+.scrolled{
+    background-color:rgba(238, 255, 142, .8) !important;
+}
+
+.nav1 .brand-logo1 {
+    padding: 18px;
+    position: static;
+    height: 86px;
+    width: 110px;
+   
+    
+}
+nav .brand-logo {
+    padding: 7px;
+    
+}
+
+nav .brand-logo img{
+    height: 43px;
+}
+
+.nav1 ul li{
+    width: 100%;
+  
+    
+    
+}
+
+nav ul a{
+    color: $mincol2;
+    border-radius: 5px;
+    @include trans(.3s);
+
+
+    &:hover{
+        background-color: #851814 !important;
+        @include bxshadw(0px,4px,7px,0px,rgba(0, 0, 0,.5),0px,-4px,7px,0px,rgba(0, 0, 0,.5));
+        @include trans(.3s);
+        transform: scale(1.2);
+    }
+}
+       
+.Active{
+            background-color: #851814 !important;
+        @include bxshadw(0px,4px,7px,0px,rgba(0, 0, 0,.5),0px,-4px,7px,0px,rgba(0, 0, 0,.5));
+        transform: scale(1.2);
+}
+
+
+
+
+nav ul li.active{
+    background-color: transparent !important;
+}
+
+.nav2 .side-nav{
+    background-color:$mincol2;
+    border-radius: 0 12px 12px 0;
+}
+
+
+.side-nav li > a{
+    color: $mincol3;
+}
+nav a.button-collapse i {
+    color:$mincol5;
+}
+
+
+
+//end navbar
+
+//start header
+
+.header{
+    background-image: url(../Img/Big/header_384_3515.jpg);
+    min-height: 600px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    @extend .z-depth-4;
+}
+
+.header .info {
+    padding: 140px 0 ;
+    font-family: $fontyh2;
+    color: $mincol3;
+}
+
+.header .info p{
+        font-size: 26px;
+    margin-top: -15px;
+    color: $mincol3;
+    
+    
+ 
+}
+
+//end header
+
+//start About
+
+.about{
+    padding:40 0px;
+    margin-bottom: 50px;
+    
+}
+
+.about .row {
+    padding-top: 25px;
+}
+
+.about .row .img img{
+    border-radius: 12px;
+     @include bxshadw(-2px,5px,5px,1px,rgba(0, 0, 0,.5),1px,3px,12px,8px,rgba(0, 0, 0,.5));
+   
+    
+}
+
+.about .row h3{
+   @extend .title;
+
+}
+
+.about .row .col h5{
+    color: $mincol5;
+    margin-top: 0;
+}
+.about .row .col p{
+    color: $mincol1;
+        font-size: 16px;
+    letter-spacing: .6px;
+    font-style: italic;
+}
+@media #{$medium-and-down} {
+    // styles for medium screens and larger
+    .about .row .col{
+        margin: 20px 0;
+    }
+  }
+
+//end About
+
+//start skills
+
+.skills {
+    padding:40px 0 ;
+    @include bxshadw(-2px,5px,5px,1px,rgba(0, 0, 0,.5),1px,3px,12px,8px,rgba(0, 0, 0,.5));
+    background-color: $mincol1;
+    border-radius: 12px;
+    margin-bottom: 50px;
+}
+
+.skills .container h4 span:first-child {
+   animation: continue 1s infinite ease-in-out backwards running;
+    opacity: 0;
+}
+
+.skills .container h4 span:nth-child(2) {
+    animation: continue 1s infinite ease-in-out backwards running .2s;
+    opacity: 0;
+}
+.skills .container h4 span:last-child {
+  animation: continue 1s infinite ease-in-out backwards running .4s;
+    opacity: 0;
+}
+
+.skills h3{
+    @extend .title;
+}
+
+.skills .prog .sk{
+    font-size: 20px;
+    width: 140px;
+    display: inline-block;
+    margin: 10px 0;
+    color: $mincol2;
+    font-weight: 800;
+}
+
+.skills .prog .cover{
+    width: 178px;
+    height: 20px;
+    background-color: $mincol3;
+    display: inline-block;
+    border-radius: 6px;
+    top: 6px;
+}
+.skills .prog .pros{
+    width: 0px;
+    height: 20px;
+    background-color: $mincol2;
+    display: inline-block;
+    border-radius: 6px;
+    left: 0px;
+}
+
+
+.skills  h4 {
+    
+    color: $mincol2;
+        position: relative;
+    top: 33px;
+    
+}
+
+@keyframes continue {
+    from{
+        opacity:1;
+   
+    }
+    to {
+        opacity: 0;
+        
+    }
+}
+//end skills
+
+
+//start education
+.educ{
+    padding: 0 40px;
+    margin-bottom: 50px;
+}
+.educ h3{
+    @extend .title;
+    
+}
+.educ .card{
+    background-color:$mincol2;
+    color: $mincol3;
+    border-radius: 8px;
+}
+
+a {
+    color: #beeb9f;
+    font-size: 21px;
+}
+
+.materialboxed {
+    margin-top: 7px;
+    border-radius: 8px;
+}
+.card .card-reveal .card-title{
+    color: $mincol3;
+}
+
+ .card .card-image img {
+    border-radius: 8px 8px 0 0;
+}
+
+.card  .card-content a{
+    font-size: 14px !important;
+}
+
+
+.card .card-reveal .card-title {
+    
+    color: #fff}
+
+.card .card-reveal {
+    background-color: $mincol1;
+}
+
+@media #{$medium-and-up} {
+    // styles for medium screens and larger
+    
+    .card  .card-content a{
+    font-size: 16px !important;
+}
+    
+  }
+
+ @media #{$large-and-up} {
+   .card .card-reveal a{
+        font-size: 12px;
+    }
+  }
+
+@media #{$medium-and-down} {
+    // styles for medium screens and down
+    
+    .educ .col{
+        margin: 20px 0;
+    }
+}
+//end education
+
+
+//start footer
+
+.footer{
+    padding: 0 40px;
+    background-color: $mincol1;
+    
+}
+.footer{
+    padding: 0 100px;
+}
+.footer i{
+    display: block;
+    font-size: 60px;
+    color: $mincol5;
+}
+
+.footer span, 
+.footer p{
+    
+    font-size: 20px;
+     color: $mincol5;
+    margin: 0;
+    
+}
+
+.footer .col{
+    margin: 30px 0;
+  }
+
+@media #{$medium-and-down} {
+    // styles for medium screens and down
+    
+.footer .col{
+    margin: 20px 0;
+  }
+}
+@media #{$large-and-up} {
+    // styles for large screens and up
+  }
+//end footer
+
+@media #{$small-and-down} {
+}
+  @media #{$medium-and-up} {
+    // styles for medium screens and larger
+  }
+  @media #{$medium-and-down} {
+    // styles for medium screens and down
+  }
+  @media #{$large-and-up} {
+    // styles for large screens and up
+  }
+  @media #{$extra-large-and-up} {
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
